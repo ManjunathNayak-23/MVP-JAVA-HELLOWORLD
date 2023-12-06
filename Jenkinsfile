@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    environment {
-             scannerHome = tool 'Sonar-scanner'
-          }
-
+ 
     stages {
        
         stage('Build') {
@@ -36,10 +33,13 @@ pipeline {
         }
         stage('Sonarqube') {
             steps {
-                
+                   environment {
+             scannerHome = tool 'Sonar-scanner'
+          }
+
 
                 script {
-                   
+                    withSonarQubeEnv(credentialsId: 'sonarcred', installationName: 'Sonar') {
                   sh """${scannerHome}/bin/sonar-scanner \
                                 -Dsonar.projectKey=MvpKey \
                                 -Dsonar.projectName=MvpProject \
