@@ -32,10 +32,11 @@ pipeline {
             }
         }
         stage('Sonarqube') {
-            steps {
-                   environment {
+                      environment {
              scannerHome = tool 'Sonar-scanner'
           }
+            steps {
+         
 
 
                 script {
