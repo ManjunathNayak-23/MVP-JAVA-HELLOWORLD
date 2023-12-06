@@ -60,7 +60,7 @@ pipeline {
                 script{
                 
                     
-                    sh "curl -v -u admin:admin --upload-file spring-boot-hello-world-1.0.jar http://34.42.7.89:8081/repository/MVP-DEMO/spring-boot-hello-world-1.0.${env.BUILD_ID}.jar"
+                    sh "curl -v -u admin:admin --upload-file target/spring-boot-hello-world-1.0.jar http://34.42.7.89:8081/repository/MVP-DEMO/spring-boot-hello-world-1.0.${env.BUILD_ID}.jar"
                     
                     
                 }
