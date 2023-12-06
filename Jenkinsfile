@@ -87,7 +87,7 @@ pipeline {
         stage('Start the application'){
              steps{
                 script{
-                    sh "cd /opt/ && java -jar -Dserver.port=8081 javapp.jar"
+                    sh "cd /opt/ && java -jar -Dserver.port=8081 javaapp.jar"
                     echo "started....."
                 
 
