@@ -7,7 +7,7 @@ pipeline {
             steps {
                 
                 script {
-                    sh 'whoami'
+                   
                      sh 'mvn clean install -DskipTests'
                 }
             }
