@@ -61,7 +61,7 @@ pipeline {
                 script{
                 
                     
-                    sh "curl -v -u admin:admin --upload-file target/spring-boot-hello-world-1.0.jar http://34.42.7.89:8081/repository/MVP-DEMO/spring-boot-hello-world-1.0.${env.BUILD_ID}.jar"
+                    sh "sudo curl -v -u admin:admin --upload-file target/spring-boot-hello-world-1.0.jar http://34.42.7.89:8081/repository/MVP-DEMO/spring-boot-hello-world-1.0.${env.BUILD_ID}.jar"
                     
                     
                 }
@@ -87,7 +87,7 @@ pipeline {
         stage('Start the application'){
              steps{
                 script{
-                    sh "cd /opt/ && java -jar javapp.jar"
+                    sh "cd /opt/ && java -jar -Dserver.port=8081 javapp.jar"
                     echo "started....."
                 
 
