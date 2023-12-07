@@ -73,6 +73,19 @@ pipeline {
             
             
         }
+
+         stage('Download artifact and remove old artifact'){
+            steps{
+                script{
+
+        sh "sudo fuser -k -n tcp 8081 "
+                }
+
+            }
+
+         }
+
+        
         stage('Download artifact and remove old artifact'){
             steps{
                 script{
@@ -87,7 +100,7 @@ pipeline {
         stage('Start the application'){
              steps{
                 script{
-                    sh "sudo fuser -k -n tcp 8081 && cd /opt/ && nohup java -jar -Dserver.port=8081 javaapp.jar"
+                    sh "cd /opt/ && java -jar -Dserver.port=8081 javaapp.jar &"
                     echo "started....."
                 
 
