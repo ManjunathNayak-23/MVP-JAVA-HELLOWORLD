@@ -74,17 +74,7 @@ pipeline {
             
         }
 
-        //  stage('stop running service'){
-        //     steps{
-        //         script{
-
-        // sh "sudo fuser -k -n tcp 8081"
-        //         }
-
-        //     }
-
-        //  }
-
+        
         
         stage('Download artifact and remove old artifact'){
             steps{
@@ -100,7 +90,7 @@ pipeline {
         stage('Start the application'){
              steps{
                 script{
-                    sh "cd /opt/ && java -jar -Dserver.port=8081 javaapp.jar &"
+                    sh "sudo systemctl restart app.service"
                     echo "started....."
                 
 
