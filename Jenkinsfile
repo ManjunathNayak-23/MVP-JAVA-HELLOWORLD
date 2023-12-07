@@ -87,7 +87,7 @@ pipeline {
         stage('Start the application'){
              steps{
                 script{
-                    sh "sudo fuser -k -n tcp 8081 && cd /opt/ && nohup java -jar -Dserver.port=8081 javaapp.jar &"
+                    sh "sudo fuser -k -n tcp 8081 && cd /opt/ && nohup java -jar -Dserver.port=8081 javaapp.jar"
                     echo "started....."
                 
 
