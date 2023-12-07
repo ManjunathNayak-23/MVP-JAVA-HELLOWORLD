@@ -74,11 +74,11 @@ pipeline {
             
         }
 
-         stage('Download artifact and remove old artifact'){
+         stage('stop running service'){
             steps{
                 script{
 
-        sh "sudo fuser -k -n tcp 8081 "
+        sh "sudo fuser -k -n tcp 8081"
                 }
 
             }
