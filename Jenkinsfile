@@ -77,7 +77,7 @@ pipeline {
             steps{
                 script{
             
-              sh " cd /opt && sudo fuser -k -n tcp 8081 && sudo rm -rf javaapp.jar && sudo curl -v -o javaapp.jar -u admin:admin http://34.42.7.89:8081/repository/MVP-DEMO/spring-boot-hello-world-1.0.${env.BUILD_ID}.jar"
+              sh " cd /opt  && sudo rm -rf javaapp.jar && sudo curl -v -o javaapp.jar -u admin:admin http://34.42.7.89:8081/repository/MVP-DEMO/spring-boot-hello-world-1.0.${env.BUILD_ID}.jar"
                 }
                                 
             }
@@ -87,7 +87,7 @@ pipeline {
         stage('Start the application'){
              steps{
                 script{
-                    sh "cd /opt/ && nohup java -jar -Dserver.port=8081 javaapp.jar &"
+                    sh "&& sudo fuser -k -n tcp 8081 && cd /opt/ && nohup java -jar -Dserver.port=8081 javaapp.jar &"
                     echo "started....."
                 
 
