@@ -47,8 +47,8 @@ pipeline {
 
         script {
           withSonarQubeEnv(credentialsId: 'sonarcred', installationName: 'Sonar') {
-            sh ""
-            "${scannerHome}/bin/sonar-scanner \
+            sh """
+            ${scannerHome}/bin/sonar-scanner \
                                 -Dsonar.projectKey=MvpKey \
                                 -Dsonar.projectName=MvpProject \
                                 -Dsonar.projectVersion=1.0 \
@@ -56,8 +56,8 @@ pipeline {
                                 -Dsonar.java.binaries=target/test-classes/com/mkyong \
                                 -Dsonar.junit.reportsPath=target/surefire-reports/ \
                                  -Dsonar.jacoco.reportsPath=target/jacoco.exec \
-                                 -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml"
-            ""
+                                 -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
+                                 """
 
           }
         }
