@@ -1,8 +1,6 @@
 pipeline {
   agent any
   environment {
-    PROJECTKEY = 'MvpKey'
-    PROJECTNAME = 'MvpProject'
     NEXUSURL = 'http://34.42.7.89:8081'
     NEXUSREPOID = 'MVP-DEMO'
     NEXUSUSERNAME = 'admin'
@@ -51,8 +49,8 @@ pipeline {
           withSonarQubeEnv(credentialsId: 'sonarcred', installationName: 'Sonar') {
             sh ""
             "${scannerHome}/bin/sonar-scanner \
-                                -Dsonar.projectKey=${PROJECTKEY} \
-                                -Dsonar.projectName=${PROJECTNAME} \
+                                -Dsonar.projectKey='MvpKey' \
+                                -Dsonar.projectName='MvpProject' \
                                 -Dsonar.projectVersion=1.0 \
                                 -Dsonar.sources=src\
                                 -Dsonar.java.binaries=target/test-classes/com/mkyong \
