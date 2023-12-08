@@ -49,8 +49,8 @@ pipeline {
           withSonarQubeEnv(credentialsId: 'sonarcred', installationName: 'Sonar') {
             sh ""
             "${scannerHome}/bin/sonar-scanner \
-                                -Dsonar.projectKey='MvpKey' \
-                                -Dsonar.projectName='MvpProject' \
+                                -Dsonar.projectKey=MvpKey \
+                                -Dsonar.projectName=MvpProject \
                                 -Dsonar.projectVersion=1.0 \
                                 -Dsonar.sources=src\
                                 -Dsonar.java.binaries=target/test-classes/com/mkyong \
